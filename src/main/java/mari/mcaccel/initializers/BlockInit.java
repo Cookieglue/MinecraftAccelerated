@@ -38,6 +38,18 @@ public class BlockInit {
     public static final Block JACK_O_LANTERN_SMILE  = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
     public static final Block JACK_O_LANTERN_X  = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
 
+    public static final Block SOUL_JACK_O_LANTERN_CHECK = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
+    public static final Block SOUL_JACK_O_LANTERN_CREEPER = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
+    public static final Block SOUL_JACK_O_LANTERN_DERP = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
+    public static final Block SOUL_JACK_O_LANTERN_EVIL = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
+    public static final Block SOUL_JACK_O_LANTERN_HEART = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
+    public static final Block SOUL_JACK_O_LANTERN_HEROBRINE = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
+    public static final Block SOUL_JACK_O_LANTERN_SHOUT = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
+    public static final Block SOUL_JACK_O_LANTERN_SMILE = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
+    public static final Block SOUL_JACK_O_LANTERN_X = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
+
+    public static final Block SOUL_JACK_O_LANTERN_NORMAL = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
+
     public static final HashMap<String, Block> STANDARD_BLOCKS;
     static {
         HashMap<String, Block> map = new HashMap<>();
@@ -60,6 +72,17 @@ public class BlockInit {
         map.put("jack_o_lantern_evil", JACK_O_LANTERN_EVIL);
         map.put("jack_o_lantern_heart", JACK_O_LANTERN_HEART);
         map.put("jack_o_lantern_shout", JACK_O_LANTERN_SHOUT);
+
+        map.put("soul_jack_o_lantern_x", SOUL_JACK_O_LANTERN_X);
+        map.put("soul_jack_o_lantern_smile", SOUL_JACK_O_LANTERN_SMILE);
+        map.put("soul_jack_o_lantern_derp", SOUL_JACK_O_LANTERN_DERP);
+        map.put("soul_jack_o_lantern_check", SOUL_JACK_O_LANTERN_CHECK);
+        map.put("soul_jack_o_lantern_creeper", SOUL_JACK_O_LANTERN_CREEPER);
+        map.put("soul_jack_o_lantern_herobrine", SOUL_JACK_O_LANTERN_HEROBRINE);
+        map.put("soul_jack_o_lantern_evil", SOUL_JACK_O_LANTERN_EVIL);
+        map.put("soul_jack_o_lantern_heart", SOUL_JACK_O_LANTERN_HEART);
+        map.put("soul_jack_o_lantern_shout", SOUL_JACK_O_LANTERN_SHOUT);
+        map.put("soul_jack_o_lantern_normal", SOUL_JACK_O_LANTERN_NORMAL);
 
         STANDARD_BLOCKS = map;
     }

@@ -3,6 +3,7 @@ package mari.mcaccel;
 import mari.mcaccel.initializers.BlockInit;
 import net.fabricmc.api.ModInitializer;
 
+import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,6 +14,7 @@ public class McAccel implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("mcaccel");
 
 	public static String MOD_ID = "mcaccel";
+	public static Identifier MOD_IDENTIFIER = new Identifier(MOD_ID);
 
 	@Override
 	public void onInitialize() {

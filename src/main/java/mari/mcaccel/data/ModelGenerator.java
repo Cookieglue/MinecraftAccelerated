@@ -43,11 +43,17 @@ public class ModelGenerator extends FabricModelProvider {
     private void GeneratePumpkins(BlockStateModelGenerator blockStateModelGenerator){
 
         TextureMap pumpkinTextureMap = TextureMap.sideEnd(Blocks.PUMPKIN);
+        TextureMap greyPumpkinTextureMap = new TextureMap();
+        greyPumpkinTextureMap = TextureMap.sideEnd(Blocks.AMETHYST_BLOCK);
+        //greyPumpkinTextureMap.put(TextureKey.TOP, new Identifier("mcaccel:block/carved_pumpkin_shout"));
 
         for (Map.Entry<String, Block> block: BlockInit.STANDARD_BLOCKS.entrySet()) {
 
             //hopefully this string check will prevent any errors8
-            if(block.getKey().contains("jack_o_lantern")||block.getKey().contains("carved_pumpkin")){
+            if(block.getKey().contains("soul_jack_o_lantern")){
+
+            }
+            else if(block.getKey().contains("jack_o_lantern")||block.getKey().contains("carved_pumpkin")){
                 blockStateModelGenerator.registerNorthDefaultHorizontalRotatable(block.getValue(),pumpkinTextureMap);
             }
 
