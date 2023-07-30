@@ -40,7 +40,7 @@ public class BlockInit {
 
     public static final HashMap<String, Block> STANDARD_BLOCKS;
     static {
-        HashMap<String, Block> map = new HashMap<String, Block>();
+        HashMap<String, Block> map = new HashMap<>();
         map.put("carved_pumpkin_x", CARVED_PUMPKIN_X);
         map.put("carved_pumpkin_smile", CARVED_PUMPKIN_SMILE);
         map.put("carved_pumpkin_derp", CARVED_PUMPKIN_DERP);
