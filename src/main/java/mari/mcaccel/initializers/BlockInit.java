@@ -18,15 +18,15 @@ import java.util.Map;
 
 public class BlockInit {
 
-    public static final Block CARVED_PUMPKIN_CHECK  = new CarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
-    public static final Block CARVED_PUMPKIN_CREEPER  = new CarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
-    public static final Block CARVED_PUMPKIN_DERP  = new CarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
-    public static final Block CARVED_PUMPKIN_EVIL  = new CarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
-    public static final Block CARVED_PUMPKIN_HEART  = new CarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
-    public static final Block CARVED_PUMPKIN_HEROBRINE  = new CarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
-    public static final Block CARVED_PUMPKIN_SHOUT  = new CarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
-    public static final Block CARVED_PUMPKIN_SMILE  = new CarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
-    public static final Block CARVED_PUMPKIN_X  = new CarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
+    public static final Block CARVED_PUMPKIN_CHECK  = new WearableCarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
+    public static final Block CARVED_PUMPKIN_CREEPER  = new WearableCarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
+    public static final Block CARVED_PUMPKIN_DERP  = new WearableCarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
+    public static final Block CARVED_PUMPKIN_EVIL  = new WearableCarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
+    public static final Block CARVED_PUMPKIN_HEART  = new WearableCarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
+    public static final Block CARVED_PUMPKIN_HEROBRINE  = new WearableCarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
+    public static final Block CARVED_PUMPKIN_SHOUT  = new WearableCarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
+    public static final Block CARVED_PUMPKIN_SMILE  = new WearableCarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
+    public static final Block CARVED_PUMPKIN_X  = new WearableCarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
 
     public static final Block JACK_O_LANTERN_CHECK  = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
     public static final Block JACK_O_LANTERN_CREEPER  = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
@@ -90,7 +90,7 @@ public class BlockInit {
     public static void InitializeBlocks(){
 
         SetupBasicBlocks();
-
+        
 
     }
     private static void SetupBasicBlocks(){

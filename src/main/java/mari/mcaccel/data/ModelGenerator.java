@@ -44,8 +44,6 @@ public class ModelGenerator extends FabricModelProvider {
 
         TextureMap pumpkinTextureMap = TextureMap.sideEnd(Blocks.PUMPKIN);
         TextureMap greyPumpkinTextureMap = new TextureMap();
-        greyPumpkinTextureMap = TextureMap.sideEnd(Blocks.AMETHYST_BLOCK);
-        //greyPumpkinTextureMap.put(TextureKey.TOP, new Identifier("mcaccel:block/carved_pumpkin_shout"));
 
         for (Map.Entry<String, Block> block: BlockInit.STANDARD_BLOCKS.entrySet()) {
 
