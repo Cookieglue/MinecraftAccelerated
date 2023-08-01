@@ -5,7 +5,10 @@
 	"mixins": [
 		"ExampleMixin"
 	],
-	"client": [],
+	"client": [
+		"ClientMixins",
+		"RenderOverlayAccesor"
+	],
 	"server": [],
 	"injectors": {
 		"defaultRequire": 1
