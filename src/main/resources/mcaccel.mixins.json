@@ -3,10 +3,11 @@
 	"package": "mari.mcaccel.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin"
+		"EndermanIgnorePumpkins",
+		"ModifyGolemPattern"
 	],
 	"client": [
-		"ClientMixins",
+		"AddNewPumpkinOverlays",
 		"RenderOverlayAccesor"
 	],
 	"server": [],

@@ -1,22 +1,16 @@
 package mari.mcaccel.mixin;
 
-import com.mojang.authlib.minecraft.client.MinecraftClient;
 import mari.mcaccel.initializers.BlockInit;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.CarvedPumpkinBlock;
 import net.minecraft.entity.mob.EndermanEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.MinecraftServer;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.gen.Accessor;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(EndermanEntity.class)
-public class ExampleMixin {
+public class EndermanIgnorePumpkins {
 
 	@Inject(method = "isPlayerStaring", at = @At("HEAD"), cancellable = true)
     void isStaring(PlayerEntity player, CallbackInfoReturnable<Boolean> cir){

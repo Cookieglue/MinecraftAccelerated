@@ -1,6 +1,5 @@
 package mari.mcaccel.initializers;
 
-import joptsimple.util.KeyValuePair;
 import mari.mcaccel.McAccel;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -11,8 +10,6 @@ import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,41 +47,41 @@ public class BlockInit {
 
     public static final Block SOUL_JACK_O_LANTERN_NORMAL = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
 
-    public static final HashMap<String, Block> STANDARD_BLOCKS;
+    public static final HashMap<Block, String> PUMPKIN_BLOCKS;
     static {
-        HashMap<String, Block> map = new HashMap<>();
-        map.put("carved_pumpkin_x", CARVED_PUMPKIN_X);
-        map.put("carved_pumpkin_smile", CARVED_PUMPKIN_SMILE);
-        map.put("carved_pumpkin_derp", CARVED_PUMPKIN_DERP);
-        map.put("carved_pumpkin_check", CARVED_PUMPKIN_CHECK);
-        map.put("carved_pumpkin_creeper", CARVED_PUMPKIN_CREEPER);
-        map.put("carved_pumpkin_herobrine", CARVED_PUMPKIN_HEROBRINE);
-        map.put("carved_pumpkin_evil", CARVED_PUMPKIN_EVIL);
-        map.put("carved_pumpkin_heart", CARVED_PUMPKIN_HEART);
-        map.put("carved_pumpkin_shout", CARVED_PUMPKIN_SHOUT);
+        HashMap<Block, String> map = new HashMap<>();
+        map.put(CARVED_PUMPKIN_X, "carved_pumpkin_x");
+        map.put(CARVED_PUMPKIN_SMILE, "carved_pumpkin_smile");
+        map.put(CARVED_PUMPKIN_DERP, "carved_pumpkin_derp");
+        map.put(CARVED_PUMPKIN_CHECK, "carved_pumpkin_check");
+        map.put(CARVED_PUMPKIN_CREEPER, "carved_pumpkin_creeper");
+        map.put(CARVED_PUMPKIN_HEROBRINE, "carved_pumpkin_herobrine");
+        map.put(CARVED_PUMPKIN_EVIL, "carved_pumpkin_evil");
+        map.put(CARVED_PUMPKIN_HEART, "carved_pumpkin_heart");
+        map.put(CARVED_PUMPKIN_SHOUT, "carved_pumpkin_shout");
 
-        map.put("jack_o_lantern_x", JACK_O_LANTERN_X);
-        map.put("jack_o_lantern_smile", JACK_O_LANTERN_SMILE);
-        map.put("jack_o_lantern_derp", JACK_O_LANTERN_DERP);
-        map.put("jack_o_lantern_check", JACK_O_LANTERN_CHECK);
-        map.put("jack_o_lantern_creeper", JACK_O_LANTERN_CREEPER);
-        map.put("jack_o_lantern_herobrine", JACK_O_LANTERN_HEROBRINE);
-        map.put("jack_o_lantern_evil", JACK_O_LANTERN_EVIL);
-        map.put("jack_o_lantern_heart", JACK_O_LANTERN_HEART);
-        map.put("jack_o_lantern_shout", JACK_O_LANTERN_SHOUT);
+        map.put(JACK_O_LANTERN_X, "jack_o_lantern_x");
+        map.put(JACK_O_LANTERN_SMILE, "jack_o_lantern_smile");
+        map.put(JACK_O_LANTERN_DERP, "jack_o_lantern_derp");
+        map.put(JACK_O_LANTERN_CHECK, "jack_o_lantern_check");
+        map.put(JACK_O_LANTERN_CREEPER, "jack_o_lantern_creeper");
+        map.put(JACK_O_LANTERN_HEROBRINE, "jack_o_lantern_herobrine");
+        map.put(JACK_O_LANTERN_EVIL, "jack_o_lantern_evil");
+        map.put(JACK_O_LANTERN_HEART, "jack_o_lantern_heart");
+        map.put(JACK_O_LANTERN_SHOUT, "jack_o_lantern_shout");
 
-        map.put("soul_jack_o_lantern_x", SOUL_JACK_O_LANTERN_X);
-        map.put("soul_jack_o_lantern_smile", SOUL_JACK_O_LANTERN_SMILE);
-        map.put("soul_jack_o_lantern_derp", SOUL_JACK_O_LANTERN_DERP);
-        map.put("soul_jack_o_lantern_check", SOUL_JACK_O_LANTERN_CHECK);
-        map.put("soul_jack_o_lantern_creeper", SOUL_JACK_O_LANTERN_CREEPER);
-        map.put("soul_jack_o_lantern_herobrine", SOUL_JACK_O_LANTERN_HEROBRINE);
-        map.put("soul_jack_o_lantern_evil", SOUL_JACK_O_LANTERN_EVIL);
-        map.put("soul_jack_o_lantern_heart", SOUL_JACK_O_LANTERN_HEART);
-        map.put("soul_jack_o_lantern_shout", SOUL_JACK_O_LANTERN_SHOUT);
-        map.put("soul_jack_o_lantern_normal", SOUL_JACK_O_LANTERN_NORMAL);
+        map.put(SOUL_JACK_O_LANTERN_X, "soul_jack_o_lantern_x");
+        map.put(SOUL_JACK_O_LANTERN_SMILE, "soul_jack_o_lantern_smile");
+        map.put(SOUL_JACK_O_LANTERN_DERP, "soul_jack_o_lantern_derp");
+        map.put(SOUL_JACK_O_LANTERN_CHECK, "soul_jack_o_lantern_check");
+        map.put(SOUL_JACK_O_LANTERN_CREEPER, "soul_jack_o_lantern_creeper");
+        map.put(SOUL_JACK_O_LANTERN_HEROBRINE, "soul_jack_o_lantern_herobrine");
+        map.put(SOUL_JACK_O_LANTERN_EVIL, "soul_jack_o_lantern_evil");
+        map.put(SOUL_JACK_O_LANTERN_HEART, "soul_jack_o_lantern_heart");
+        map.put(SOUL_JACK_O_LANTERN_SHOUT, "soul_jack_o_lantern_shout");
+        map.put(SOUL_JACK_O_LANTERN_NORMAL, "soul_jack_o_lantern_normal");
 
-        STANDARD_BLOCKS = map;
+        PUMPKIN_BLOCKS = map;
     }
 
     public static void InitializeBlocks(){
@@ -95,10 +92,10 @@ public class BlockInit {
     }
     private static void SetupBasicBlocks(){
 
-        for (Map.Entry<String, Block> block: STANDARD_BLOCKS.entrySet()) {
+        for (Map.Entry<Block, String> block: PUMPKIN_BLOCKS.entrySet()) {
 
-            Registry.register(Registries.BLOCK, new Identifier(McAccel.MOD_ID, block.getKey()), block.getValue());
-            Registry.register(Registries.ITEM, new Identifier(McAccel.MOD_ID, block.getKey()), new BlockItem(block.getValue(), new FabricItemSettings()));
+            Registry.register(Registries.BLOCK, new Identifier(McAccel.MOD_ID, block.getValue()), block.getKey());
+            Registry.register(Registries.ITEM, new Identifier(McAccel.MOD_ID, block.getValue()), new BlockItem(block.getKey(), new FabricItemSettings()));
 
         }
         
