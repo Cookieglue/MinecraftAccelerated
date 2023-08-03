@@ -19,6 +19,7 @@ import java.util.function.BiConsumer;
 public class LootTableGenerator extends FabricBlockLootTableProvider {
 
 
+
     public LootTableGenerator(FabricDataOutput dataOutput) {
         super(dataOutput);
     }

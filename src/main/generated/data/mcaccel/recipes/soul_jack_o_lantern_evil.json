@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "item": "mcaccel:carved_pumpkin_evil"
+    },
+    "T": {
+      "item": "minecraft:torch"
+    }
+  },
+  "pattern": [
+    "P",
+    "T"
+  ],
+  "result": {
+    "item": "mcaccel:soul_jack_o_lantern_evil"
+  },
+  "show_notification": true
+}

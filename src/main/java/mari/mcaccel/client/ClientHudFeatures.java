@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 public class ClientHudFeatures implements HudRenderCallback {
 
-    private static final Identifier PUMPKIN_BLUR = new Identifier("minecraft","textures/misc/pumpkinblur.png");
+    private static final Identifier PUMPKIN_BLUR = new Identifier("assets/minecraft","textures/misc/pumpkinblur.png");
 
 
     @Override

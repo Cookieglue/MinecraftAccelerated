@@ -13,6 +13,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class BlockInit {
@@ -49,9 +50,9 @@ public class BlockInit {
     public static final Block SOUL_JACK_O_LANTERN_X = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
     public static final Block SOUL_JACK_O_LANTERN_NORMAL = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
 
-    public static final HashMap<Block, String> PUMPKIN_BLOCKS;
+    public static final LinkedHashMap<Block, String> PUMPKIN_BLOCKS;
     static {
-        HashMap<Block, String> map = new HashMap<>();
+        LinkedHashMap<Block, String> map = new LinkedHashMap<>();
         map.put(CARVED_PUMPKIN_X, "carved_pumpkin_x");
         map.put(CARVED_PUMPKIN_SMILE, "carved_pumpkin_smile");
         map.put(CARVED_PUMPKIN_DERP, "carved_pumpkin_derp");
