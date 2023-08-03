@@ -21,13 +21,17 @@ import java.util.function.Predicate;
 @Mixin(CarvedPumpkinBlock.class)
 public class ModifyGolemPattern {
 
-    //private static final Predicate<BlockState> IS_GOLEM_HEAD_PREDICATE = state -> state != null && (state.isOf(Blocks.CARVED_PUMPKIN) || state.isOf(Blocks.JACK_O_LANTERN)||state.isOf(Blocks.AMETHYST_BLOCK));
-
     @Shadow
     @Mutable
-    private static @Final Predicate<BlockState>IS_GOLEM_HEAD_PREDICATE;
+    private static @Final Predicate<BlockState>IS_GOLEM_HEAD_PREDICATE = state -> state != null && (
+            state.isOf(Blocks.CARVED_PUMPKIN) ||
+                    state.isOf(Blocks.JACK_O_LANTERN)||
+                    BlockInit.PUMPKIN_BLOCKS.containsKey(state.getBlock()));;
 
-    @Inject(method = "getSnowGolemPattern", at= @At("HEAD") )
+    /**
+     * Keep old code here in case this breaks
+     *
+     * @Inject(method = "getSnowGolemPattern", at= @At("HEAD") )
     void modifyGolemPattern(CallbackInfoReturnable<BlockPattern> cir){
         McAccel.LOGGER.debug("FUCK");
         IS_GOLEM_HEAD_PREDICATE = state -> state != null && (
@@ -36,5 +40,5 @@ public class ModifyGolemPattern {
                 BlockInit.PUMPKIN_BLOCKS.containsKey(state.getBlock()));
     };
 
-
+    **/
 }

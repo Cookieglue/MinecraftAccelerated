@@ -4,6 +4,8 @@ import mari.mcaccel.McAccel;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
+import net.minecraft.block.enums.Instrument;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -15,37 +17,37 @@ import java.util.Map;
 
 public class BlockInit {
 
-    public static final Block CARVED_PUMPKIN_CHECK  = new WearableCarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
-    public static final Block CARVED_PUMPKIN_CREEPER  = new WearableCarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
-    public static final Block CARVED_PUMPKIN_DERP  = new WearableCarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
-    public static final Block CARVED_PUMPKIN_EVIL  = new WearableCarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
-    public static final Block CARVED_PUMPKIN_HEART  = new WearableCarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
-    public static final Block CARVED_PUMPKIN_HEROBRINE  = new WearableCarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
-    public static final Block CARVED_PUMPKIN_SHOUT  = new WearableCarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
-    public static final Block CARVED_PUMPKIN_SMILE  = new WearableCarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
-    public static final Block CARVED_PUMPKIN_X  = new WearableCarvedPumpkinBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOD));
+    private static final FabricBlockSettings BASIC_PUMPKIN_SETTINGS = FabricBlockSettings.copyOf(Blocks.PUMPKIN).requiresTool();
+    public static final Block CARVED_PUMPKIN_CHECK  = new WearableCarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS);
+    public static final Block CARVED_PUMPKIN_CREEPER  = new WearableCarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS);
+    public static final Block CARVED_PUMPKIN_DERP  = new WearableCarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS);
+    public static final Block CARVED_PUMPKIN_EVIL  = new WearableCarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS);
+    public static final Block CARVED_PUMPKIN_HEART  = new WearableCarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS);
+    public static final Block CARVED_PUMPKIN_HEROBRINE  = new WearableCarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS);
+    public static final Block CARVED_PUMPKIN_SHOUT  = new WearableCarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS);
+    public static final Block CARVED_PUMPKIN_SMILE  = new WearableCarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS);
+    public static final Block CARVED_PUMPKIN_X  = new WearableCarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS);
 
-    public static final Block JACK_O_LANTERN_CHECK  = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
-    public static final Block JACK_O_LANTERN_CREEPER  = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
-    public static final Block JACK_O_LANTERN_DERP  = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
-    public static final Block JACK_O_LANTERN_EVIL  = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
-    public static final Block JACK_O_LANTERN_HEART  = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
-    public static final Block JACK_O_LANTERN_HEROBRINE  = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
-    public static final Block JACK_O_LANTERN_SHOUT  = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
-    public static final Block JACK_O_LANTERN_SMILE  = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
-    public static final Block JACK_O_LANTERN_X  = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
+    public static final Block JACK_O_LANTERN_CHECK  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
+    public static final Block JACK_O_LANTERN_CREEPER  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
+    public static final Block JACK_O_LANTERN_DERP  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
+    public static final Block JACK_O_LANTERN_EVIL  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
+    public static final Block JACK_O_LANTERN_HEART  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
+    public static final Block JACK_O_LANTERN_HEROBRINE  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
+    public static final Block JACK_O_LANTERN_SHOUT  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
+    public static final Block JACK_O_LANTERN_SMILE  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
+    public static final Block JACK_O_LANTERN_X  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
 
-    public static final Block SOUL_JACK_O_LANTERN_CHECK = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
-    public static final Block SOUL_JACK_O_LANTERN_CREEPER = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
-    public static final Block SOUL_JACK_O_LANTERN_DERP = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
-    public static final Block SOUL_JACK_O_LANTERN_EVIL = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
-    public static final Block SOUL_JACK_O_LANTERN_HEART = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
-    public static final Block SOUL_JACK_O_LANTERN_HEROBRINE = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
-    public static final Block SOUL_JACK_O_LANTERN_SHOUT = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
-    public static final Block SOUL_JACK_O_LANTERN_SMILE = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
-    public static final Block SOUL_JACK_O_LANTERN_X = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
-
-    public static final Block SOUL_JACK_O_LANTERN_NORMAL = new CarvedPumpkinBlock(FabricBlockSettings.create().luminance(14).sounds(BlockSoundGroup.WOOD));
+    public static final Block SOUL_JACK_O_LANTERN_CHECK = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
+    public static final Block SOUL_JACK_O_LANTERN_CREEPER = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
+    public static final Block SOUL_JACK_O_LANTERN_DERP = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
+    public static final Block SOUL_JACK_O_LANTERN_EVIL = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
+    public static final Block SOUL_JACK_O_LANTERN_HEART = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
+    public static final Block SOUL_JACK_O_LANTERN_HEROBRINE = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
+    public static final Block SOUL_JACK_O_LANTERN_SHOUT = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
+    public static final Block SOUL_JACK_O_LANTERN_SMILE = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
+    public static final Block SOUL_JACK_O_LANTERN_X = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
+    public static final Block SOUL_JACK_O_LANTERN_NORMAL = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
 
     public static final HashMap<Block, String> PUMPKIN_BLOCKS;
     static {
