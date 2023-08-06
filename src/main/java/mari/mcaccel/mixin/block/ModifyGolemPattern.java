@@ -1,4 +1,4 @@
-package mari.mcaccel.mixin;
+package mari.mcaccel.mixin.block;
 
 
 import mari.mcaccel.McAccel;

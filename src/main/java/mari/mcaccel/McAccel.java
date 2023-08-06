@@ -1,8 +1,10 @@
 package mari.mcaccel;
 
 import mari.mcaccel.initializers.BlockInit;
+import mari.mcaccel.initializers.ItemGroupInit;
 import net.fabricmc.api.ModInitializer;
 
+import net.minecraft.block.CarvedPumpkinBlock;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,5 +26,7 @@ public class McAccel implements ModInitializer {
 
 		LOGGER.info("Hello Fabric world!");
 		BlockInit.InitializeBlocks();
+		ItemGroupInit.RegisterItemGroups();
+
 	}
 }

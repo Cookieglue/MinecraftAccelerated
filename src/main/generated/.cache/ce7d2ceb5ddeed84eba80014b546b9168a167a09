@@ -1,4 +1,4 @@
-// 1.20.1	2023-08-03T11:12:56.1564275	Minecraft Accelerated/Model Definitions
+// 1.20.1	2023-08-03T11:16:40.0728922	Minecraft Accelerated/Model Definitions
 2152bbcd9a9e27149d7d4630966bc116694ac60a assets\mcaccel\models\item\carved_pumpkin_derp.json
 e5b3c8d82e03a9cc42ba42dda2b8ed129e61b07e assets\mcaccel\blockstates\jack_o_lantern_heart.json
 cd4d5443dee08b096068af98d76f4330381a66ff assets\mcaccel\models\item\jack_o_lantern_derp.json
@@ -30,9 +30,9 @@ eb09412cd29bb06cd7db0da4455009415d86a801 assets\mcaccel\models\block\jack_o_lant
 4a0e1ace607af82cc9ddbe0d4f777ed530596453 assets\mcaccel\blockstates\carved_pumpkin_creeper.json
 ce279445019873cab615aadefc275fde925e3ce1 assets\mcaccel\models\item\carved_pumpkin_shout.json
 22898e46fc35d53905d5685fd7660fa006cc4903 assets\mcaccel\models\item\jack_o_lantern_smile.json
-63e14b2ef712e5d86fb67cc76191e2e9673c0524 assets\mcaccel\models\item\jack_o_lantern_evil.json
 3c7fc8c02239813098c4a46103a74f3ed1432929 assets\mcaccel\blockstates\carved_pumpkin_heart.json
 dba16b771e7bfa68d996f6b5509424da5c837eef assets\mcaccel\blockstates\jack_o_lantern_creeper.json
+63e14b2ef712e5d86fb67cc76191e2e9673c0524 assets\mcaccel\models\item\jack_o_lantern_evil.json
 6b128f40546e34b9046e84db29300245451f97c4 assets\mcaccel\blockstates\jack_o_lantern_shout.json
 6eb8e91ea6e044175338402236647bb668482e36 assets\mcaccel\models\item\carved_pumpkin_x.json
 eda76145af66c512ce462d361924149a81ccd9fa assets\mcaccel\models\block\carved_pumpkin_creeper.json

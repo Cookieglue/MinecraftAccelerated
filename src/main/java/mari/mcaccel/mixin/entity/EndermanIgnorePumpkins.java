@@ -1,4 +1,4 @@
-package mari.mcaccel.mixin;
+package mari.mcaccel.mixin.entity;
 
 import mari.mcaccel.initializers.BlockInit;
 import net.minecraft.entity.mob.EndermanEntity;

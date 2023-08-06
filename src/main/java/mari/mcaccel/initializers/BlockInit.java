@@ -29,26 +29,26 @@ public class BlockInit {
     public static final Block CARVED_PUMPKIN_SMILE  = new WearableCarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS);
     public static final Block CARVED_PUMPKIN_X  = new WearableCarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS);
 
-    public static final Block JACK_O_LANTERN_CHECK  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
-    public static final Block JACK_O_LANTERN_CREEPER  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
-    public static final Block JACK_O_LANTERN_DERP  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
-    public static final Block JACK_O_LANTERN_EVIL  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
-    public static final Block JACK_O_LANTERN_HEART  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
-    public static final Block JACK_O_LANTERN_HEROBRINE  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
-    public static final Block JACK_O_LANTERN_SHOUT  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
-    public static final Block JACK_O_LANTERN_SMILE  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
-    public static final Block JACK_O_LANTERN_X  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
+    public static final Block JACK_O_LANTERN_CHECK  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(15));
+    public static final Block JACK_O_LANTERN_CREEPER  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(15));
+    public static final Block JACK_O_LANTERN_DERP  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(15));
+    public static final Block JACK_O_LANTERN_EVIL  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(15));
+    public static final Block JACK_O_LANTERN_HEART  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(15));
+    public static final Block JACK_O_LANTERN_HEROBRINE  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(15));
+    public static final Block JACK_O_LANTERN_SHOUT  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(15));
+    public static final Block JACK_O_LANTERN_SMILE  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(15));
+    public static final Block JACK_O_LANTERN_X  = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(15));
 
-    public static final Block SOUL_JACK_O_LANTERN_CHECK = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
-    public static final Block SOUL_JACK_O_LANTERN_CREEPER = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
-    public static final Block SOUL_JACK_O_LANTERN_DERP = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
-    public static final Block SOUL_JACK_O_LANTERN_EVIL = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
-    public static final Block SOUL_JACK_O_LANTERN_HEART = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
-    public static final Block SOUL_JACK_O_LANTERN_HEROBRINE = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
-    public static final Block SOUL_JACK_O_LANTERN_SHOUT = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
-    public static final Block SOUL_JACK_O_LANTERN_SMILE = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
-    public static final Block SOUL_JACK_O_LANTERN_X = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
-    public static final Block SOUL_JACK_O_LANTERN_NORMAL = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(14));
+    public static final Block SOUL_JACK_O_LANTERN_CHECK = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(15));
+    public static final Block SOUL_JACK_O_LANTERN_CREEPER = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(15));
+    public static final Block SOUL_JACK_O_LANTERN_DERP = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(15));
+    public static final Block SOUL_JACK_O_LANTERN_EVIL = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(15));
+    public static final Block SOUL_JACK_O_LANTERN_HEART = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(15));
+    public static final Block SOUL_JACK_O_LANTERN_HEROBRINE = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(15));
+    public static final Block SOUL_JACK_O_LANTERN_SHOUT = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(15));
+    public static final Block SOUL_JACK_O_LANTERN_SMILE = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(15));
+    public static final Block SOUL_JACK_O_LANTERN_X = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(15));
+    public static final Block SOUL_JACK_O_LANTERN_NORMAL = new CarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS.luminance(15));
 
     public static final LinkedHashMap<Block, String> PUMPKIN_BLOCKS;
     static {
@@ -86,7 +86,6 @@ public class BlockInit {
 
         PUMPKIN_BLOCKS = map;
     }
-
     public static void InitializeBlocks(){
 
         SetupBasicBlocks();

@@ -1,7 +1,8 @@
-package mari.mcaccel.mixin;
+package mari.mcaccel.mixin.render;
 
 import mari.mcaccel.McAccel;
 import mari.mcaccel.initializers.BlockInit;
+import mari.mcaccel.mixin.RenderOverlayAccesor;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
