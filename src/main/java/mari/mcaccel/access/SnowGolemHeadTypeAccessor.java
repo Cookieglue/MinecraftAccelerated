@@ -1,8 +1,11 @@
 package mari.mcaccel.access;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
 
 public interface SnowGolemHeadTypeAccessor {
-    Block getHeadBlock();
+    ItemStack getHeadItemStack();
+
+    void setHeadBlock(Block block);
 
 }

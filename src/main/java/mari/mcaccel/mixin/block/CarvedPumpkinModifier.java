@@ -1,15 +1,15 @@
 package mari.mcaccel.mixin.block;
 
+import mari.mcaccel.McAccel;
+import mari.mcaccel.access.SnowGolemHeadTypeAccessor;
 import mari.mcaccel.initializers.BlockInit;
 import net.minecraft.block.*;
+import net.minecraft.block.pattern.BlockPattern;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.SnowGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
@@ -22,7 +22,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.HashMap;
 
@@ -72,29 +74,21 @@ public class CarvedPumpkinModifier extends HorizontalFacingBlock{
         return PUMPKIN_CHANGE_MAP.get(block);
     }
 
+    @ModifyArg(method = "trySpawnEntity", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/CarvedPumpkinBlock;spawnEntity(Lnet/minecraft/world/World;Lnet/minecraft/block/pattern/BlockPattern$Result;Lnet/minecraft/entity/Entity;Lnet/minecraft/util/math/BlockPos;)V",
+    ordinal = 0), index = 2)
+    Entity modifySnowGolem(Entity entity){
 
-    /**@ModifyArg(method = "trySpawnEntity", at = @At(value = "INVOKE",
-            target = "Lnet/minecraft/block/CarvedPumpkinBlock;spawnEntity(Lnet/minecraft/world/World;Lnet/minecraft/block/pattern/BlockPattern$Result;Lnet/minecraft/entity/Entity;Lnet/minecraft/util/math/BlockPos;)V"),
-            index = 2)
-    private Entity foo(Entity entity){
-        NbtCompound nbtCompound = new NbtCompound();
-                nbtCompound.put("pumpkin_type", (NbtElement) this);
-        SnowGolemEntity snowMan = (SnowGolemEntity) entity;
-        snowMan.writeNbt(nbtCompound);
-
-        return entity;
+        SnowGolemEntity snowGolem = (SnowGolemEntity) entity;
+        ((SnowGolemHeadTypeAccessor)(SnowGolemEntity) entity).setHeadBlock(this);
+        return snowGolem;
     }
-    **/
+
 
     protected CarvedPumpkinModifier(Settings settings) {
         super(settings);
     }
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-
-        SnowGolemEntity snowMan = new SnowGolemEntity(EntityType.SNOW_GOLEM, world);
-        snowMan.setPos(hit.getBlockPos().getX(),hit.getBlockPos().getY(),hit.getBlockPos().getZ());
-        world.spawnEntity(snowMan);
 
         ItemStack itemStack = player.getStackInHand(hand);
         if (itemStack.isOf(Items.SHEARS)) {
