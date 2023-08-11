@@ -18,7 +18,7 @@ import java.util.Map;
 
 public class BlockInit {
 
-    private static final FabricBlockSettings BASIC_PUMPKIN_SETTINGS = FabricBlockSettings.copyOf(Blocks.PUMPKIN);
+    private static final FabricBlockSettings BASIC_PUMPKIN_SETTINGS = FabricBlockSettings.copyOf(Blocks.PUMPKIN).pistonBehavior(PistonBehavior.DESTROY);
     public static final Block CARVED_PUMPKIN_CHECK  = new WearableCarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS);
     public static final Block CARVED_PUMPKIN_CREEPER  = new WearableCarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS);
     public static final Block CARVED_PUMPKIN_DERP  = new WearableCarvedPumpkinBlock(BASIC_PUMPKIN_SETTINGS);

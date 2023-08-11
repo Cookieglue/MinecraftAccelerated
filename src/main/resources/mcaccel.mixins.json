@@ -6,8 +6,7 @@
 		"entity.EndermanIgnorePumpkins",
       	"block.CarvedPumpkinModifier",
 		"entity.SnowmanPumpkinFeatureRendererMixin",
-		"entity.SnowGolemNewHeads",
-		"blockEntity.BeaconBlockEntityMixin"
+		"entity.SnowGolemNewHeads"
 	],
 	"client": [
       "render.AddNewPumpkinOverlays",
