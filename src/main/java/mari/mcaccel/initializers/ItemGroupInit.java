@@ -17,15 +17,6 @@ import java.util.Map;
 
 public class ItemGroupInit {
 
-
-    public static final ItemGroup TEST_GROUP = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(McAccel.MOD_ID, "pumpkin"),
-            FabricItemGroup.builder()
-                    .displayName(Text.translatable("itemgroup_testing"))
-                    .icon(()->new ItemStack(BlockInit.CARVED_PUMPKIN_CREEPER.asItem())).entries((displayContext, entries) -> {
-                        entries.add(BlockInit.CARVED_PUMPKIN_CREEPER);
-                    })
-                    .build());
     public static void RegisterItemGroups(){
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(content -> {

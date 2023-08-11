@@ -4,10 +4,10 @@
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
 		"entity.EndermanIgnorePumpkins",
-		"block.ModifyGolemPattern",
       	"block.CarvedPumpkinModifier",
 		"entity.SnowmanPumpkinFeatureRendererMixin",
-		"entity.SnowGolemNewHeads"
+		"entity.SnowGolemNewHeads",
+		"blockEntity.BeaconBlockEntityMixin"
 	],
 	"client": [
       "render.AddNewPumpkinOverlays",

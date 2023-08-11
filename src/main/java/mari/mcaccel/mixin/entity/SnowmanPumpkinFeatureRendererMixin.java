@@ -1,7 +1,7 @@
 package mari.mcaccel.mixin.entity;
 
 import mari.mcaccel.McAccel;
-import mari.mcaccel.access.SnowGolemHeadTypeAccessor;
+import mari.mcaccel.accessors.SnowGolemHeadTypeAccessor;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.feature.SnowmanPumpkinFeatureRenderer;

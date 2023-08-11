@@ -1,7 +1,7 @@
 package mari.mcaccel.mixin.entity;
 
 import mari.mcaccel.McAccel;
-import mari.mcaccel.access.SnowGolemHeadTypeAccessor;
+import mari.mcaccel.accessors.SnowGolemHeadTypeAccessor;
 import mari.mcaccel.initializers.BlockInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -13,7 +13,6 @@ import net.minecraft.entity.passive.GolemEntity;
 import net.minecraft.entity.passive.SnowGolemEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

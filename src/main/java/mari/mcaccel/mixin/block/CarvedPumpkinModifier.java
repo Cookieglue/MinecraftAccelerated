@@ -1,10 +1,8 @@
 package mari.mcaccel.mixin.block;
 
-import mari.mcaccel.McAccel;
-import mari.mcaccel.access.SnowGolemHeadTypeAccessor;
+import mari.mcaccel.accessors.SnowGolemHeadTypeAccessor;
 import mari.mcaccel.initializers.BlockInit;
 import net.minecraft.block.*;
-import net.minecraft.block.pattern.BlockPattern;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.SnowGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -20,17 +18,25 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Mutable;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.HashMap;
+import java.util.function.Predicate;
 
 @Mixin(CarvedPumpkinBlock.class)
 public class CarvedPumpkinModifier extends HorizontalFacingBlock{
 
+    @Shadow
+    @Mutable
+    private static @Final Predicate<BlockState> IS_GOLEM_HEAD_PREDICATE = state -> state != null && (
+            state.isOf(Blocks.CARVED_PUMPKIN) ||
+                    state.isOf(Blocks.JACK_O_LANTERN)||
+                    BlockInit.PUMPKIN_BLOCKS.containsKey(state.getBlock()));
     private static HashMap<Block, Block> PUMPKIN_CHANGE_MAP;
     private Block getPumpkinBlocks(Block block) {
 
