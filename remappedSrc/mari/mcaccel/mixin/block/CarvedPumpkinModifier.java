@@ -2,10 +2,14 @@ package mari.mcaccel.mixin.block;
 
 import mari.mcaccel.accessors.SnowGolemHeadTypeAccessor;
 import mari.mcaccel.initializers.BlockInit;
+import net.fabricmc.fabric.api.event.EventFactory;
+import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.entity.passive.SnowGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
@@ -25,76 +29,40 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
-import java.util.HashMap;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 @Mixin(CarvedPumpkinBlock.class)
 public class CarvedPumpkinModifier extends HorizontalFacingBlock{
 
+    private static LinkedHashMap<Block, Block> PumpkinMapForward;
     @Shadow
     @Mutable
     private static @Final Predicate<BlockState> IS_GOLEM_HEAD_PREDICATE = state -> state != null && (
             state.isOf(Blocks.CARVED_PUMPKIN) ||
                     state.isOf(Blocks.JACK_O_LANTERN)||
                     BlockInit.PUMPKIN_BLOCKS.containsKey(state.getBlock()));
-    private static HashMap<Block, Block> PUMPKIN_CHANGE_MAP;
-    private Block getPumpkinBlocks(Block block) {
 
-        if(PUMPKIN_CHANGE_MAP != null) PUMPKIN_CHANGE_MAP.get(block);
+    private Block getPumpkinBlock(Block block) {
 
-        HashMap<Block, Block> map = new HashMap<Block, Block>();
+        if (PumpkinMapForward == null){GeneratePumpkinLookupMap();}
 
-        map.put(Blocks.CARVED_PUMPKIN, BlockInit.CARVED_PUMPKIN_X);
-        map.put(BlockInit.CARVED_PUMPKIN_X, BlockInit.CARVED_PUMPKIN_SMILE);
-        map.put(BlockInit.CARVED_PUMPKIN_SMILE, BlockInit.CARVED_PUMPKIN_DERP);
-        map.put(BlockInit.CARVED_PUMPKIN_DERP, BlockInit.CARVED_PUMPKIN_CHECK);
-        map.put(BlockInit.CARVED_PUMPKIN_CHECK, BlockInit.CARVED_PUMPKIN_CREEPER);
-        map.put(BlockInit.CARVED_PUMPKIN_CREEPER, BlockInit.CARVED_PUMPKIN_HEROBRINE);
-        map.put(BlockInit.CARVED_PUMPKIN_HEROBRINE, BlockInit.CARVED_PUMPKIN_EVIL);
-        map.put(BlockInit.CARVED_PUMPKIN_EVIL, BlockInit.CARVED_PUMPKIN_HEART);
-        map.put(BlockInit.CARVED_PUMPKIN_HEART, BlockInit.CARVED_PUMPKIN_SHOUT);
-        map.put(BlockInit.CARVED_PUMPKIN_SHOUT, Blocks.CARVED_PUMPKIN);
+        return PumpkinMapForward.get(block);
 
-        map.put(Blocks.JACK_O_LANTERN, BlockInit.JACK_O_LANTERN_X);
-        map.put(BlockInit.JACK_O_LANTERN_X, BlockInit.JACK_O_LANTERN_SMILE);
-        map.put(BlockInit.JACK_O_LANTERN_SMILE, BlockInit.JACK_O_LANTERN_DERP);
-        map.put(BlockInit.JACK_O_LANTERN_DERP, BlockInit.JACK_O_LANTERN_CHECK);
-        map.put(BlockInit.JACK_O_LANTERN_CHECK, BlockInit.JACK_O_LANTERN_CREEPER);
-        map.put(BlockInit.JACK_O_LANTERN_CREEPER, BlockInit.JACK_O_LANTERN_HEROBRINE);
-        map.put(BlockInit.JACK_O_LANTERN_HEROBRINE, BlockInit.JACK_O_LANTERN_EVIL);
-        map.put(BlockInit.JACK_O_LANTERN_EVIL, BlockInit.JACK_O_LANTERN_HEART);
-        map.put(BlockInit.JACK_O_LANTERN_HEART, BlockInit.JACK_O_LANTERN_SHOUT);
-        map.put(BlockInit.JACK_O_LANTERN_SHOUT, Blocks.JACK_O_LANTERN);
-
-        map.put(BlockInit.SOUL_JACK_O_LANTERN_NORMAL, BlockInit.SOUL_JACK_O_LANTERN_X);
-        map.put(BlockInit.SOUL_JACK_O_LANTERN_X, BlockInit.SOUL_JACK_O_LANTERN_SMILE);
-        map.put(BlockInit.SOUL_JACK_O_LANTERN_SMILE, BlockInit.SOUL_JACK_O_LANTERN_DERP);
-        map.put(BlockInit.SOUL_JACK_O_LANTERN_DERP, BlockInit.SOUL_JACK_O_LANTERN_CHECK);
-        map.put(BlockInit.SOUL_JACK_O_LANTERN_CHECK, BlockInit.SOUL_JACK_O_LANTERN_CREEPER);
-        map.put(BlockInit.SOUL_JACK_O_LANTERN_CREEPER, BlockInit.SOUL_JACK_O_LANTERN_HEROBRINE);
-        map.put(BlockInit.SOUL_JACK_O_LANTERN_HEROBRINE, BlockInit.SOUL_JACK_O_LANTERN_EVIL);
-        map.put(BlockInit.SOUL_JACK_O_LANTERN_EVIL, BlockInit.SOUL_JACK_O_LANTERN_HEART);
-        map.put(BlockInit.SOUL_JACK_O_LANTERN_HEART, BlockInit.SOUL_JACK_O_LANTERN_SHOUT);
-        map.put(BlockInit.SOUL_JACK_O_LANTERN_SHOUT, BlockInit.SOUL_JACK_O_LANTERN_NORMAL);
-
-        PUMPKIN_CHANGE_MAP = map;
-        return PUMPKIN_CHANGE_MAP.get(block);
     }
-
-    @ModifyArg(method = "trySpawnEntity", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/CarvedPumpkinBlock;spawnEntity(Lnet/minecraft/world/World;Lnet/minecraft/block/pattern/BlockPattern$Result;Lnet/minecraft/entity/Entity;Lnet/minecraft/util/math/BlockPos;)V",
-    ordinal = 0), index = 2)
+    @ModifyArg(method = "trySpawnEntity", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;spawnEntity(Lnet/minecraft/entity/Entity;)Z"),index = 0)
     Entity modifySnowGolem(Entity entity){
 
         SnowGolemEntity snowGolem = (SnowGolemEntity) entity;
         ((SnowGolemHeadTypeAccessor)(SnowGolemEntity) entity).setHeadBlock(this);
         return snowGolem;
     }
-
-
     protected CarvedPumpkinModifier(Settings settings) {
         super(settings);
     }
-
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
 
         ItemStack itemStack = player.getStackInHand(hand);
@@ -103,7 +71,8 @@ public class CarvedPumpkinModifier extends HorizontalFacingBlock{
                 Direction direction = hit.getSide();
                 Direction direction2 = direction.getAxis() == Direction.Axis.Y ? player.getHorizontalFacing().getOpposite() : direction;
                 world.playSound((PlayerEntity)null, pos, SoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                world.setBlockState(pos, (BlockState) getPumpkinBlocks(this).getDefaultState().with(CarvedPumpkinBlock.FACING, direction2), 11);
+
+                world.setBlockState(pos, (BlockState) getPumpkinBlock(this).getDefaultState().with(CarvedPumpkinBlock.FACING, direction2), 11);
 
                 itemStack.damage(1, player, (playerx) -> {
                     playerx.sendToolBreakStatus(hand);
@@ -112,12 +81,52 @@ public class CarvedPumpkinModifier extends HorizontalFacingBlock{
                 player.incrementStat(Stats.USED.getOrCreateStat(Items.SHEARS));
             }
 
-            return ActionResult.success(world.isClient);
+            return ActionResult.SUCCESS;
         } else {
 
             return super.onUse(state, world, pos, player, hand, hit);
         }
     }
 
+
+    private static void GeneratePumpkinLookupMap(){
+
+        LinkedHashMap<Block, Block> forward = new LinkedHashMap<Block,Block>();
+
+        forward.put(Blocks.CARVED_PUMPKIN, BlockInit.CARVED_PUMPKIN_X);
+        forward.put(BlockInit.CARVED_PUMPKIN_X, BlockInit.CARVED_PUMPKIN_SMILE);
+        forward.put(BlockInit.CARVED_PUMPKIN_SMILE, BlockInit.CARVED_PUMPKIN_DERP);
+        forward.put(BlockInit.CARVED_PUMPKIN_DERP, BlockInit.CARVED_PUMPKIN_CHECK);
+        forward.put(BlockInit.CARVED_PUMPKIN_CHECK, BlockInit.CARVED_PUMPKIN_CREEPER);
+        forward.put(BlockInit.CARVED_PUMPKIN_CREEPER, BlockInit.CARVED_PUMPKIN_HEROBRINE);
+        forward.put(BlockInit.CARVED_PUMPKIN_HEROBRINE, BlockInit.CARVED_PUMPKIN_EVIL);
+        forward.put(BlockInit.CARVED_PUMPKIN_EVIL, BlockInit.CARVED_PUMPKIN_HEART);
+        forward.put(BlockInit.CARVED_PUMPKIN_HEART, BlockInit.CARVED_PUMPKIN_SHOUT);
+        forward.put(BlockInit.CARVED_PUMPKIN_SHOUT, Blocks.CARVED_PUMPKIN);
+
+        forward.put(Blocks.JACK_O_LANTERN, BlockInit.JACK_O_LANTERN_X);
+        forward.put(BlockInit.JACK_O_LANTERN_X, BlockInit.JACK_O_LANTERN_SMILE);
+        forward.put(BlockInit.JACK_O_LANTERN_SMILE, BlockInit.JACK_O_LANTERN_DERP);
+        forward.put(BlockInit.JACK_O_LANTERN_DERP, BlockInit.JACK_O_LANTERN_CHECK);
+        forward.put(BlockInit.JACK_O_LANTERN_CHECK, BlockInit.JACK_O_LANTERN_CREEPER);
+        forward.put(BlockInit.JACK_O_LANTERN_CREEPER, BlockInit.JACK_O_LANTERN_HEROBRINE);
+        forward.put(BlockInit.JACK_O_LANTERN_HEROBRINE, BlockInit.JACK_O_LANTERN_EVIL);
+        forward.put(BlockInit.JACK_O_LANTERN_EVIL, BlockInit.JACK_O_LANTERN_HEART);
+        forward.put(BlockInit.JACK_O_LANTERN_HEART, BlockInit.JACK_O_LANTERN_SHOUT);
+        forward.put(BlockInit.JACK_O_LANTERN_SHOUT, Blocks.JACK_O_LANTERN);
+
+        forward.put(BlockInit.SOUL_JACK_O_LANTERN_NORMAL, BlockInit.SOUL_JACK_O_LANTERN_X);
+        forward.put(BlockInit.SOUL_JACK_O_LANTERN_X, BlockInit.SOUL_JACK_O_LANTERN_SMILE);
+        forward.put(BlockInit.SOUL_JACK_O_LANTERN_SMILE, BlockInit.SOUL_JACK_O_LANTERN_DERP);
+        forward.put(BlockInit.SOUL_JACK_O_LANTERN_DERP, BlockInit.SOUL_JACK_O_LANTERN_CHECK);
+        forward.put(BlockInit.SOUL_JACK_O_LANTERN_CHECK, BlockInit.SOUL_JACK_O_LANTERN_CREEPER);
+        forward.put(BlockInit.SOUL_JACK_O_LANTERN_CREEPER, BlockInit.SOUL_JACK_O_LANTERN_HEROBRINE);
+        forward.put(BlockInit.SOUL_JACK_O_LANTERN_HEROBRINE, BlockInit.SOUL_JACK_O_LANTERN_EVIL);
+        forward.put(BlockInit.SOUL_JACK_O_LANTERN_EVIL, BlockInit.SOUL_JACK_O_LANTERN_HEART);
+        forward.put(BlockInit.SOUL_JACK_O_LANTERN_HEART, BlockInit.SOUL_JACK_O_LANTERN_SHOUT);
+        forward.put(BlockInit.SOUL_JACK_O_LANTERN_SHOUT, BlockInit.SOUL_JACK_O_LANTERN_NORMAL);
+
+        PumpkinMapForward = forward;
+    }
 
 }

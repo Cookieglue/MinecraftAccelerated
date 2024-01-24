@@ -6,10 +6,9 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.Wearable;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
-
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -95,7 +94,7 @@ public class BlockInit {
 
 
             Registry.register(Registry.BLOCK, new Identifier(PumpkinsAccelerated.MOD_ID, block.getValue()), block.getKey());
-            Registry.register(Registry.ITEM, new Identifier(PumpkinsAccelerated.MOD_ID, block.getValue()), new BlockItem(block.getKey(), new FabricItemSettings()));
+            Registry.register(Registry.ITEM, new Identifier(PumpkinsAccelerated.MOD_ID, block.getValue()), new BlockItem(block.getKey(), new FabricItemSettings().group(ItemGroup.DECORATIONS)));
 
         }
         

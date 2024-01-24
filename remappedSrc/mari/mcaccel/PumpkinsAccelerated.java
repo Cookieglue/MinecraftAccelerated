@@ -1,9 +1,10 @@
 package mari.mcaccel;
 
+import mari.mcaccel.events.LeftClickPumpkinEvent;
 import mari.mcaccel.initializers.BlockInit;
-import mari.mcaccel.initializers.ItemGroupInit;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,9 +24,10 @@ public class PumpkinsAccelerated implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
-		LOGGER.info("Hello Fabric world!");
+		LOGGER.info("Pumpkins Accelerated (mcaccel) Enabled!");
 		BlockInit.InitializeBlocks();
-		ItemGroupInit.RegisterItemGroups();
+		AttackBlockCallback.EVENT.register(new LeftClickPumpkinEvent());
+		LeftClickPumpkinEvent.GenerateReversedPumpkinLookupMap();
 
 	}
 }
