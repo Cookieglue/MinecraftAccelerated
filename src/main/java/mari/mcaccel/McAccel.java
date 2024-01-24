@@ -1,9 +1,11 @@
 package mari.mcaccel;
 
+import mari.mcaccel.events.LeftClickPumpkinEvent;
 import mari.mcaccel.initializers.BlockInit;
 import mari.mcaccel.initializers.ItemGroupInit;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.minecraft.block.CarvedPumpkinBlock;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
@@ -27,6 +29,8 @@ public class McAccel implements ModInitializer {
 		LOGGER.info("Hello Fabric world!");
 		BlockInit.InitializeBlocks();
 		ItemGroupInit.RegisterItemGroups();
+		AttackBlockCallback.EVENT.register(new LeftClickPumpkinEvent());
+		LeftClickPumpkinEvent.GenerateReversedPumpkinLookupMap();
 
 	}
 }
