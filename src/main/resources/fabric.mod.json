@@ -1,25 +1,24 @@
 {
 	"schemaVersion": 1,
 	"id": "mcaccel",
-	"version": "${version}",
-	"name": "Minecraft Accelerated",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"version": "1.19.2",
+	"name": "Pumpkins Accelerated",
+	"description": "This is part of my 'accelerated' mod series meant to enhance specific aspects of the game to allow for many customizable additions!",
 	"authors": [
 		"Mari"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/Cookieglue/PumpkinsAccelerated"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/mcaccel/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"mari.mcaccel.McAccel"
+			"mari.mcaccel.PumpkinsAccelerated"
 		],
 		"client": [
-			"mari.mcaccel.McAccelClient"
+			"mari.mcaccel.PumpkinsAcceleratedClient"
 		],
 		"fabric-datagen": [
 			"mari.mcaccel.DataGenerator"
@@ -29,8 +28,8 @@
       "mcaccel.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.14.21",
-		"minecraft": "~1.20.1",
+		"fabricloader": ">=0.14.22",
+		"minecraft": "~1.19.2",
 		"java": ">=17",
 		"fabric-api": "*"
 	},

@@ -4,12 +4,11 @@ import mari.mcaccel.initializers.BlockInit;
 import mari.mcaccel.initializers.ItemGroupInit;
 import net.fabricmc.api.ModInitializer;
 
-import net.minecraft.block.CarvedPumpkinBlock;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class McAccel implements ModInitializer {
+public class PumpkinsAccelerated implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
